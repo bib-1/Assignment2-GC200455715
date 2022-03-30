@@ -10,7 +10,8 @@ import java.net.http.HttpResponse;
 public class APIUtility {
     public static BookDetails getBookDetails(String searchLetter)
     {
-        String uri = "https://www.googleapis.com/books/v1/volumes?q=" + searchLetter + "&key=AIzaSyAj-_A4gXH7P2a2-f32mkuRn-gGYWNzicg";
+        searchLetter = searchLetter.replace(" ","%20");
+        String uri = "https://www.googleapis.com/books/v1/volumes?q=" +searchLetter+ "&key=AIzaSyAj-_A4gXH7P2a2-f32mkuRn-gGYWNzicg";
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
@@ -30,7 +31,8 @@ public class APIUtility {
     }
 
     public static void main(String[] args) {
-        System.out.println(getBookDetails("Father"));
-
+        BookDetails bd = getBookDetails("Atomic Habits");
+        System.out.println(bd);
+        System.out.println(bd.getItems()[0].getVolumeInfo().getAuthor()[0]);
     }
 }
