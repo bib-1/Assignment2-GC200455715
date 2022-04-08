@@ -7,4 +7,6 @@ module com.example.assignment2gc200455715 {    requires javafx.controls;
     opens com.example.assignment2gc200455715 to
             javafx.fxml,
             com.google.gson;
+    exports com.example.assignment2gc200455715.Models;
+    opens com.example.assignment2gc200455715.Models to com.google.gson, javafx.fxml;
 }

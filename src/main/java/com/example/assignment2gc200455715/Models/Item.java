@@ -1,4 +1,4 @@
-package com.example.assignment2gc200455715;
+package com.example.assignment2gc200455715.Models;
 
 public class Item {
     //volume info

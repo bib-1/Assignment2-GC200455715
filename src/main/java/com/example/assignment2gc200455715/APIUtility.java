@@ -1,5 +1,8 @@
 package com.example.assignment2gc200455715;
 
+import com.example.assignment2gc200455715.Models.BookDetails;
+import com.example.assignment2gc200455715.Models.Item;
+import com.example.assignment2gc200455715.Models.Volume;
 import com.google.gson.Gson;
 
 import java.net.URI;
@@ -17,7 +20,6 @@ public class APIUtility {
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
 
         try {
-            //this will call the API and write the result to the file "javaApiFeteched.json"
             HttpResponse<String> response = client.send(httpRequest, HttpResponse
                     .BodyHandlers.ofString());
             Gson gson = new Gson();
@@ -32,7 +34,8 @@ public class APIUtility {
 
     public static void main(String[] args) {
         BookDetails bd = getBookDetails("Atomic Habits");
-        System.out.println(bd);
-        System.out.println(bd.getItems()[0].getVolumeInfo().getAuthor()[0]);
+        for (Item i :bd.getItems() ){
+            System.out.println(i);
+        }
     }
 }
