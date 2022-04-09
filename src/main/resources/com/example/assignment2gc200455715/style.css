@@ -1,0 +1,37 @@
+.root{
+    -fx-background-color: #7fb9ff;
+    -fx-font-family: Arial;
+}
+
+#title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: #e85d04;
+}
+
+.button{
+    -fx-background-color: #fca311;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.button:hover{
+    -fx-background-color: #a16000;
+}
+
+.label{
+    -fx-font-size: 15px;
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: green;
+    -fx-wrap-text: true;
+}
+
+#pane{
+    -fx-background-color: #7fb9ff;
+}
+
+#lblDescription{
+    -fx-wrap-text: true;
+}
+

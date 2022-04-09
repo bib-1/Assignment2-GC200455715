@@ -33,9 +33,6 @@ public class APIUtility {
     }
 
     public static void main(String[] args) {
-        BookDetails bd = getBookDetails("Atomic Habits");
-        for (Item i :bd.getItems() ){
-            System.out.println(i);
-        }
+        System.out.println(String.valueOf(0));
     }
 }

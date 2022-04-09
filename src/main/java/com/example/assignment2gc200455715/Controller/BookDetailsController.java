@@ -48,25 +48,49 @@ public class BookDetailsController {
 
     public void loadDetails(Volume vol){
         lblDescription.setEditable(false);
-        lblDescription.setScrollTop(2);
         title.setText(vol.getTitle());
 
-        String title = vol.getTitle();
         String subTitle = vol.getSubtitle();
         String category = Arrays.toString(vol.getCategories());
-        category = category.substring(1, category.length()-1);
         String author = Arrays.toString(vol.getAuthors());
-        author = author.substring(1,author.length()-1);
         String publishedDate = vol.getPublishedDate();
         String pageCount = String.valueOf(vol.getPageCount());
         String description = vol.getDescription();
 
        lblDescription.setText(description);
-       lblSubtitle.setText(subTitle);
-       lblCategory.setText(category);
-       lblAuthor.setText(author);
-       lblPublishedDate.setText(publishedDate);
-       lblPageCount.setText(pageCount);
+       if(subTitle == null){
+           lblSubtitle.setText("N/A");
+       }
+       else {
+           lblSubtitle.setText(subTitle);
+       }
+       if(category.equals("null")){
+           lblCategory.setText("N/A");
+       }
+       else{
+           category = category.substring(1, category.length()-1);
+           lblCategory.setText(category);
+       }
+       if(author.equals("null")){
+           lblAuthor.setText("N/A");
+       }
+       else {
+           author = author.substring(1,author.length()-1);
+           lblAuthor.setText(author);
+       }
+       if(publishedDate == null){
+           lblPublishedDate.setText("N/A");
+       }
+       else {
+           lblPublishedDate.setText(publishedDate);
+       }
+        try{
+            lblPageCount.setText("N/A");
+        }
+        catch (Exception e){
+            lblPageCount.setText(pageCount);
+        }
+
 
         try {
             coverImageView.setImage(new Image(vol.getImageLinks().toString()));
