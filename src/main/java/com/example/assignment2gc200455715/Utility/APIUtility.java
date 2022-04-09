@@ -1,4 +1,4 @@
-package com.example.assignment2gc200455715;
+package com.example.assignment2gc200455715.Utility;
 
 import com.example.assignment2gc200455715.Models.BookDetails;
 import com.example.assignment2gc200455715.Models.Item;

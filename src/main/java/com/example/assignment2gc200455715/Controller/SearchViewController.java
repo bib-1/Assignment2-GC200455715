@@ -1,8 +1,10 @@
-package com.example.assignment2gc200455715;
+package com.example.assignment2gc200455715.Controller;
 
 import com.example.assignment2gc200455715.Models.BookDetails;
 import com.example.assignment2gc200455715.Models.Item;
 import com.example.assignment2gc200455715.Models.Volume;
+import com.example.assignment2gc200455715.Utility.APIUtility;
+import com.example.assignment2gc200455715.Utility.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,8 +55,9 @@ public class SearchViewController implements Initializable {
     }
 
     @FXML
-    void getBookDetail(ActionEvent event) {
-
+    void getBookDetail(ActionEvent event) throws IOException {
+        Volume selectedVolume = resultListView.getSelectionModel().getSelectedItem();
+        SceneChanger.changeScenes(event, "book-details.fxml", selectedVolume);
     }
 
 
