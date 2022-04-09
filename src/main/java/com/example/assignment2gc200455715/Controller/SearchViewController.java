@@ -36,12 +36,15 @@ public class SearchViewController implements Initializable {
     @FXML
     private ImageView imageView;
 
+
+
     //Following block of code runs after the search button is clicked.
     @FXML
     void searchBooks(ActionEvent event){
         imageView.setVisible(false);
         if( searchTextField.getText() != ""){
-            BookDetails bd = APIUtility.getBookDetails(searchTextField.getText().trim());
+            APIUtility.defaultBook = searchTextField.getText().trim();
+            BookDetails bd = APIUtility.getBookDetails(APIUtility.defaultBook);
             resultListView.getItems().clear();
             for (Item i :bd.getItems() ){
                 resultListView.getItems().add(i.getVolumeInfo());
@@ -54,9 +57,12 @@ public class SearchViewController implements Initializable {
             }
         }
         else{
-            msgLabel.setText("Please enter the key work to search");
+            msgLabel.setText("Please enter the keyword to search");
         }
     }
+
+
+
 
     @FXML
     void getBookDetail(ActionEvent event) throws IOException {
@@ -67,6 +73,17 @@ public class SearchViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(APIUtility.start == 0){
+            APIUtility.start++;
+            APIUtility.defaultBook = "Atomic Habits";
+        }
+        //default display
+        searchTextField.setText(APIUtility.defaultBook);
+        BookDetails bd = APIUtility.getBookDetails(searchTextField.getText().trim());
+        for (Item i :bd.getItems() ){
+            resultListView.getItems().add(i.getVolumeInfo());
+        }
+
         resultListView.getSelectionModel().selectedItemProperty().addListener(
                 (obs, oldBookSelected, newBookSelected) -> {
                     imageView.setVisible(true);

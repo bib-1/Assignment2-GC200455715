@@ -22,6 +22,7 @@ public class SceneChanger {
 
         //get the stage object from the action event triggered when the button was pushed
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Book Details");
         stage.setScene(scene);
         stage.show();
     }

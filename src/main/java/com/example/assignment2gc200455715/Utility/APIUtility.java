@@ -11,6 +11,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class APIUtility {
+
+    public static int start = 0;
+    public static String defaultBook;
     public static BookDetails getBookDetails(String searchLetter)
     {
         searchLetter = searchLetter.replace(" ","%20");
